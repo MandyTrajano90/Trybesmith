@@ -8,6 +8,12 @@ const createNewProduct = async (req: Request, res: Response): Promise<unknown> =
   return res.status(httpMapper.CREATED).json(product);
 };
 
+const getAllProducts = async (_req: Request, res: Response): Promise<unknown> => {
+  const products = await productService.getProducts();
+  return res.status(httpMapper.SUCCESSFUL).json(products);
+};
+
 export default {
   createNewProduct,
+  getAllProducts,
 };
